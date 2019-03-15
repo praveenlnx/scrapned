@@ -31,6 +31,7 @@ node {
         }
     }
      stage('Deploy Image') {
+            sh 'docker rm -f scrapneed || true'
             sh 'docker run -d -p 8180:80 --name scrapneed praveenlnx/scrapneed:latest'
         }
 }

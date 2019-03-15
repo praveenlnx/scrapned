@@ -31,6 +31,6 @@ node {
         }
     }
      stage('deploy image') {
-     docker run -d -p 80:80 scrapneeda-app praveenlnx/scrapneed
+     sh 'docker run -d -p 80:80 scrapneeda-app praveenlnx/scrapneed'
     }
 }

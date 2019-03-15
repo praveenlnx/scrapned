@@ -30,5 +30,7 @@ node {
             app.push("latest")
         }
     }
-     
+     stage('Deploy Image') {
+            sh 'docker run -d -p 8180:80 --name scrapneed praveenlnx/scrapneed:latest'
+        }
 }

@@ -30,7 +30,5 @@ node {
             app.push("latest")
         }
     }
-     stage('deploy image') {
-         sh 'docker run -d -p 80:80 scrapneeda-app praveenlnx/scrapneed'
-    }
+     
 }

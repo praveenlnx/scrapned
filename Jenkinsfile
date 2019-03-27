@@ -31,7 +31,10 @@ node {
         }
     }
      stage('Deploy Image') {
-            sh 'docker rm -f scrapneed || true'
-            sh 'docker run -d -p 8180:80 --name scrapneed praveenlnx/scrapneed:latest'
+            sh 'kubectl delete deploy scrapneed'
+            sh 'kubectl delete svc scrapneed'
+            sh 'kubectl run scrapneed --image=praveenlnx/scrapneed:latest --port=80:80'
+            sh 'kubectl expose deploy scrapneed --type="LoadBalancer"'
+            
         }
 }

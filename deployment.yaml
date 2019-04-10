@@ -17,3 +17,22 @@ spec:
         image: praveenlnx/scrapneed
         ports:
         - containerPort: 80
+        
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: sn-service
+  namespace: p-xjx7m-pipeline
+spec:
+  ports:
+  - nodePort: 32598
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: sn
+  type: NodePort
+status:
+  loadBalancer: {}
